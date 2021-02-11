@@ -8,9 +8,13 @@ import PostsPage from "./pages/PostsPage";
 
 const App = () => {
   return (
-    <div>
-      <h2>Hello Redux</h2>
-    </div>
+    <BrowserRouter>
+      <Switch>
+        <Route exact path="/" component={DashboardPage} />
+        <Route exact path="/posts" component={PostsPage} />
+        <Redirect to="/" />
+      </Switch>
+    </BrowserRouter>
   );
 };
 
