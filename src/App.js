@@ -5,6 +5,7 @@ import { BrowserRouter, Switch, Route, Redirect } from "react-router-dom";
 // Local imports
 import DashboardPage from "./pages/DashboardPage";
 import PostsPage from "./pages/PostsPage";
+import SinglePostPage from "../src/pages/SinglePostPage";
 
 const App = () => {
   return (
@@ -12,6 +13,7 @@ const App = () => {
       <Switch>
         <Route exact path="/" component={DashboardPage} />
         <Route exact path="/posts" component={PostsPage} />
+        <Route path="/posts/:postId" component={SinglePostPage} />
         <Redirect to="/" />
       </Switch>
     </BrowserRouter>
