@@ -11,7 +11,7 @@ const SinglePostPage = ({ match, dispatch, postData, loading, hasError }) => {
   }, [dispatch, match]);
 
   const renderPost = () => {
-    console.log(postData);
+    console.log("Post Data:", postData);
     if (loading) return <p>Loading Posts...</p>;
     if (hasError) return <p>An Error Occurred</p>;
     return (

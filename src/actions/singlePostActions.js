@@ -9,7 +9,6 @@ export const getSinglePost = () => {
 };
 
 export const getSinglePostSuccess = (postData) => {
-  console.log("getSinglePostSuccess...", postData);
   return {
     type: GET_SINGLE_POST_SUCCESS,
     postData: postData,
