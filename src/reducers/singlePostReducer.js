@@ -11,11 +11,12 @@ export default function singlePostReducer(state = initialState, action) {
     case actions.GET_SINGLE_POST:
       return { ...state, loading: true };
     case actions.GET_SINGLE_POST_SUCCESS:
+      console.log("singlePostReducer SUCCESS here...", state);
       return {
         ...state,
         postData: action.postData,
         loading: false,
-        hasErrors: false,
+        hasError: false,
       };
     case actions.GET_SINGLE_POST_FAILURE:
       return { ...state, hasError: true };
