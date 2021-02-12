@@ -11,11 +11,12 @@ const SinglePostPage = ({ match, dispatch, postData, loading, hasError }) => {
   }, [dispatch, match]);
 
   const renderPost = () => {
-    console.log("Post Data:", postData);
+    console.log("Post Data: ", postData);
     if (loading) return <p>Loading Posts...</p>;
     if (hasError) return <p>An Error Occurred</p>;
     return (
       <section>
+        {/* <h1>POST</h1> */}
         <h2>POST {postData.id}</h2>
         <h2>{postData.title}</h2>
         <p>{postData.body.substring(0, 100)}</p>
