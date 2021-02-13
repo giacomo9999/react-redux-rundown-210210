@@ -2,7 +2,7 @@ import * as actions from "../actions/singlePostActions";
 
 export const initialState = {
   postData: [],
-  loading: false,
+  loading: true,
   hasError: false,
 };
 

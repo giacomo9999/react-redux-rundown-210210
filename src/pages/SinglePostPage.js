@@ -17,14 +17,14 @@ const SinglePostPage = ({
     const { postId } = match.params;
     dispatch(fetchSinglePost(postId));
     dispatch(fetchComments(postId));
+    console.log("singlePostPage useEffect...", postId);
   }, [dispatch, match]);
 
   const renderComments = () => {
-    console.log("Comments Data", commentData);
-    if (loading.comments) return <p>Loading Posts...</p>;
+    if (loading.comments) return <p>Loading Comments...</p>;
     if (hasError.comments) return <p>An Error Occurred</p>;
-    return commentData.map((comment) => (
-      <aside className="comment">
+    return commentData.map((comment, index) => (
+      <aside className="comment" key={index}>
         <h2>{comment.title}</h2>
         <h3>{comment.email}</h3>
         <p>{comment.body}</p>
@@ -33,15 +33,19 @@ const SinglePostPage = ({
   };
 
   const renderPost = () => {
-    console.log("Post Data: ", postData);
+    console.log("singlePostPage renderPost...", postData);
     if (loading.singlePost) return <p>Loading Posts...</p>;
     if (hasError.singlePost) return <p>An Error Occurred</p>;
-    return (
+    return postData.id ? (
       <section>
-        {/* <h1>POST</h1> */}
         <h2>POST {postData.id}</h2>
         <h2>{postData.title}</h2>
         <p>{postData.body.substring(0, 100)}</p>
+        <Link to="/posts">Back To List</Link>
+      </section>
+    ) : (
+      <section>
+        <h2>Not A Valid Post ID</h2>
         <Link to="/posts">Back To List</Link>
       </section>
     );

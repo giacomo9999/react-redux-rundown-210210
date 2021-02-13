@@ -2,18 +2,27 @@ export const GET_SINGLE_POST = "GET_SINGLE_POST";
 export const GET_SINGLE_POST_SUCCESS = "GET_SINGLE_POST_SUCCESS";
 export const GET_SINGLE_POST_FAILURE = "GET_SINGLE_POST_FAILURE";
 
-export const getSinglePost = () => ({
-  type: GET_SINGLE_POST,
-});
+export const getSinglePost = () => {
+  console.log("singlePostActions getSinglePost....");
+  return {
+    type: GET_SINGLE_POST,
+  };
+};
 
-export const getSinglePostSuccess = (postData) => ({
-  type: GET_SINGLE_POST_SUCCESS,
-  postData: postData,
-});
+export const getSinglePostSuccess = (postData) => {
+  console.log("singlePostActions getSinglePostSuccess....", postData);
+  return {
+    type: GET_SINGLE_POST_SUCCESS,
+    postData: postData,
+  };
+};
 
-export const getSinglePostFailure = () => ({
-  type: GET_SINGLE_POST_FAILURE,
-});
+export const getSinglePostFailure = () => {
+  console.log("singlePostActions getSinglePostFailure....");
+  return {
+    type: GET_SINGLE_POST_FAILURE,
+  };
+};
 
 export function fetchSinglePost(postId) {
   return async (dispatch) => {
